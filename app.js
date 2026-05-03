@@ -179,6 +179,17 @@ app.get("/logout", (req, res) => {
 });
 
 /*
+basic 404 page, link send back to home
+*/
+app.use((req, res) => {
+  res.status(404).send(`
+    <h1>404 - Page Not Found</h1>
+    <p>The page you're looking for doesn't exist.</p>
+    <a href="/">Go Home</a>
+  `);
+});
+
+/*
 check if running, print port
 */
 app.listen(process.env.PORT, () => {
